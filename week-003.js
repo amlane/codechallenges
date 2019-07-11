@@ -27,7 +27,8 @@ console.log(sortString("AzycxbCwBaA"));
 
 // Expected function: `commonElements`
 
-// Write a function called `commonElements` that has parameters for two arrays.  Return an array of all items that are present in both arrays.  Do not modify the arrays that are passed in.
+// Write a function called `commonElements` that has parameters for two arrays.
+// Return an array of all items that are present in both arrays.  Do not modify the arrays that are passed in.
 
 //  Input Example:
 // ```
@@ -47,3 +48,20 @@ console.log(sortString("AzycxbCwBaA"));
 //   commonElements
 // }
 // ```
+
+function commonElements(arr1, arr2) {
+  let matchingNums = [];
+  arr1.forEach(el => {
+    if (arr2.includes(el)) {
+      if (!matchingNums.includes(el)) {
+        return matchingNums.push(el);
+      }
+    }
+  });
+  return matchingNums;
+}
+
+const arr1 = [1, 2, 3, 4];
+const arr2 = [3, 4, 5, 6];
+
+console.log(commonElements(arr1, arr2));
