@@ -73,4 +73,15 @@ console.log(commonElements(arr1, arr2));
 // toCamelCase("The_stealth_warrior")
 // returns "TheStealthWarrior"
 
-function toCamelCase(str) {}
+function toCamelCase(str) {
+  if (str.includes("-")) {
+    const split = str.split("-");
+    const firstLetter = split[1][1].toUpperCase();
+    const secondLetter = split[2][1].toUpperCase();
+  } else {
+    return str.split("_");
+  }
+}
+
+console.log(toCamelCase("the-stealth-warrior"));
+console.log(toCamelCase("The_stealth_warrior"));
