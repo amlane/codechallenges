@@ -1,0 +1,12 @@
+{
+  "name": "plusOne",
+  "version": "1.0.0",
+  "description": "",
+  "main": "plusOne.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

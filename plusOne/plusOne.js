@@ -44,8 +44,6 @@ var plusOne = function (digits) {
   return digits;
 };
 
-console.log(plusOne([1, 2, 3])); // [1,2,4]
-console.log(plusOne([9])); // [1,0]
-console.log(plusOne([1, 9])); // [2,0]
-console.log(plusOne([3, 9])); // [4,0]
-console.log(plusOne([9, 9, 9])); // [1,0,0,0]
+module.exports = {
+  plusOne,
+};
