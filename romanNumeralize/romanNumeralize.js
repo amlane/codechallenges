@@ -24,7 +24,7 @@ function romanNumeralize(n) {
   let numArray = Object.keys(romanNumeralDict);
   let result = "";
   let i = numArray.length - 1;
-
+  // handles if our input is 0
   if (n === 0) return "nulla";
   // while our input is greater than 0
   while (n > 0) {
