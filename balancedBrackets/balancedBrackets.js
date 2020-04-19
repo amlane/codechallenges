@@ -20,7 +20,6 @@ function balancedBrackets(str) {
   };
   // check each bracket in the string
   for (const key of str) {
-    // console.log(stack)
     if (bracketDict[key] === "left") {
       // if the bracket is left, add it to the stack and move to the next char
       stack.push(key);
@@ -28,7 +27,6 @@ function balancedBrackets(str) {
       // if the bracket is right,
       let lastItem = stack.pop();
       // check the stack to see if it's left match is on the stack
-      // console.log(oppositeBracket[lastItem], key)
       if (oppositeBracket[lastItem] !== key) {
         // if it's not, return false
         return false;
