@@ -13,7 +13,7 @@ function balancedBrackets(str) {
     "}": "right",
     ")": "right",
   };
-  let oppositeBracket = {
+  let opposite = {
     "{": "}",
     "[": "]",
     "(": ")",
@@ -27,7 +27,7 @@ function balancedBrackets(str) {
       // if the bracket is right,
       let lastItem = stack.pop();
       // check the stack to see if it's left match is on the stack
-      if (oppositeBracket[lastItem] !== key) {
+      if (opposite[lastItem] !== key) {
         // if it's not, return false
         return false;
       }
