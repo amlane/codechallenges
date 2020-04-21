@@ -1,5 +1,6 @@
 /*
-Write a function balancedBrackets that accepts a string and returns true if the parentheses are balanced and false otherwise. For this test we will be accepting: [], {}, () and ||  
+Write a function balancedBrackets that accepts a string and returns true if the parentheses
+are balanced and false otherwise. For this test we will be accepting: [], {}, () and ||  
 */
 
 // Stack solution
