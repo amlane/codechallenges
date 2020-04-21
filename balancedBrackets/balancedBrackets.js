@@ -1,5 +1,6 @@
 /*
-Write a function balancedBrackets that accepts a string and returns true if the parentheses are balanced and false otherwise. For this test we will be accepting: [], {}, () and ||  
+Write a function balancedBrackets that accepts a string and returns true if the parentheses
+are balanced and false otherwise. For this test we will be accepting: [], {}, () and ||  
 */
 
 // Stack solution
@@ -27,7 +28,6 @@ function balancedBrackets(str) {
     }
     // if the character is a pipe...
     if (key === "|") {
-      // add it to the stack
       stack.push(key);
       pipeFound = !pipeFound;
     }
@@ -36,12 +36,12 @@ function balancedBrackets(str) {
     if (key === "}" || key === "]" || key === ")") {
       // pop the last item off the stack
       let lastItem = stack.pop();
-
-      // if last item is a pipe,
-      if (lastItem === "|") {
+      // handles if there are several pairs of pipes
+      while (lastItem === "|") {
+        // if last item is a pipe,
         // if pipeFound is true...
         if (pipeFound) {
-          // check if there's another pipe to the right
+          // check if there's another pipe at the end of the stack
           // if there is not return false
           if (stack[stack.length - 1] !== "|") return false;
           // if there is that's a valid pair
@@ -52,21 +52,20 @@ function balancedBrackets(str) {
         }
         // if pipeFound is false...
         if (!pipeFound) {
-          // that's a complete pair, pop another one off
+          // that's an incomplete pair, pop another one off
           stack.pop();
           // then update last item
           lastItem = stack.pop();
         }
-        // finally check to see the non-pipe bracket is a valid pair
-        if (opposite[lastItem] !== key) return false;
       }
-      // if lastItem is not a pipe,
-      // check if it's a matching pair and that we're not missing a pipe
-      else if (opposite[lastItem] !== key || pipeFound) return false;
+      // once you have no pipes left in the stack
+      // make sure the right bracket matches the opposite of the last item in the stack
+      // if not, it's not valid
+      if (opposite[lastItem] !== key) return false;
     }
-    // if the character does match and pipe found is false, continue
+    // if the character does match, continue until no characters left in the string
   }
-  // handles 1 character strings and leftover brackets/pipes
+  // handles single character strings and leftover pipes
   if (stack.length % 2 !== 0) return false;
   return true;
 }
