@@ -17,6 +17,12 @@ describe("UnitTests", function () {
     expect(balancedBrackets("|(|(||||)|)|")).toEqual(true);
     expect(balancedBrackets("|(|(|||)|)|")).toEqual(false);
   });
+  it("level 4 pipe tests", function () {
+    expect(balancedBrackets("|(|(||||))|")).toEqual(false);
+    expect(balancedBrackets("||{||}||{|()|}")).toEqual(true);
+    expect(balancedBrackets("||||||")).toEqual(true);
+    expect(balancedBrackets("|||||")).toEqual(false);
+  });
   it("should handle other characters besides brackets", function () {
     expect(balancedBrackets(" const obj  = { x: someFunction(||) }")).toEqual(
       true

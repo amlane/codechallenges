@@ -41,7 +41,7 @@ function balancedBrackets(str) {
         // if last item is a pipe,
         // if pipeFound is true...
         if (pipeFound) {
-          // check if there's another pipe to the right
+          // check if there's another pipe at the end of the stack
           // if there is not return false
           if (stack[stack.length - 1] !== "|") return false;
           // if there is that's a valid pair
@@ -52,7 +52,7 @@ function balancedBrackets(str) {
         }
         // if pipeFound is false...
         if (!pipeFound) {
-          // that's a complete pair, pop another one off
+          // that's an incomplete pair, pop another one off
           stack.pop();
           // then update last item
           lastItem = stack.pop();
@@ -63,8 +63,9 @@ function balancedBrackets(str) {
       // if not, it's not valid
       if (opposite[lastItem] !== key) return false;
     }
-    // if the character does match and pipe found is false, continue
+    // if the character does match, continue until no characters left in the string
   }
+  // handles single character strings and leftover pipes
   if (stack.length % 2 !== 0) return false;
   return true;
 }
