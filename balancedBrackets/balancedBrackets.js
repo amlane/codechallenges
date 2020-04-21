@@ -28,7 +28,6 @@ function balancedBrackets(str) {
     }
     // if the character is a pipe...
     if (key === "|") {
-      // add it to the stack
       stack.push(key);
       pipeFound = !pipeFound;
     }
@@ -37,9 +36,9 @@ function balancedBrackets(str) {
     if (key === "}" || key === "]" || key === ")") {
       // pop the last item off the stack
       let lastItem = stack.pop();
-
-      // if last item is a pipe,
-      if (lastItem === "|") {
+      // handles if there are several pairs of pipes
+      while (lastItem === "|") {
+        // if last item is a pipe,
         // if pipeFound is true...
         if (pipeFound) {
           // check if there's another pipe to the right
@@ -58,16 +57,14 @@ function balancedBrackets(str) {
           // then update last item
           lastItem = stack.pop();
         }
-        // finally check to see the non-pipe bracket is a valid pair
-        if (opposite[lastItem] !== key) return false;
       }
-      // if lastItem is not a pipe,
-      // check if it's a matching pair and that we're not missing a pipe
-      else if (opposite[lastItem] !== key || pipeFound) return false;
+      // once you have no pipes left in the stack
+      // make sure the right bracket matches the opposite of the last item in the stack
+      // if not, it's not valid
+      if (opposite[lastItem] !== key) return false;
     }
     // if the character does match and pipe found is false, continue
   }
-  // handles 1 character strings and leftover brackets/pipes
   if (stack.length % 2 !== 0) return false;
   return true;
 }
