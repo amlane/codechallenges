@@ -27,6 +27,9 @@ describe("UnitTests", function () {
     expect(balancedBrackets(" const obj  = { x: someFunction(||) }")).toEqual(
       true
     );
+    expect(balancedBrackets(" const obj  = { x: someFunction(|)| }")).toEqual(
+      false
+    );
   });
   it("should be able to handle a long input", function () {
     // that's what she said
