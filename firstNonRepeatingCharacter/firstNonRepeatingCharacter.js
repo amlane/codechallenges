@@ -8,6 +8,8 @@ function firstNotRepeatingCharacter(s) {
   // create a storage object
   let storage = {};
   // iterate through the string
+  // adding each item to the dictionary if it doesn't already exist and setting value to 1
+  // if it does exist, increment the value to count
   for (const item of s) {
     if (!storage[item]) {
       storage[item] = 1;
@@ -16,11 +18,6 @@ function firstNotRepeatingCharacter(s) {
       storage[item] += 1;
     }
   }
-  // if the item is not in storage...
-  // add it to storage
-  // set it to the current result
-  // if the item is in the storage...
-  // reset result back to the underscore
 
   // iterate over the result array and look up in the dictionary
   for (const item of result) {
